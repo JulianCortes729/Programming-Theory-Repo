@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public abstract class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private float speed = 5.0f;
+    protected Rigidbody playerRb;
+
+    public Player()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
+    }
+
+    protected void FixedUpdate(){
+        Move();
+    }
+    protected abstract void Move();
+
+    public float Speed {
+        get {return speed;}
+        set {speed = value;}
     }
 }
