@@ -7,9 +7,9 @@ public class Player2 : Player
     protected new void Start() => base.Start();
     
     protected override void Move(){
-        if((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)) && gameObject.CompareTag("Player2")){
+        if((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)) && gameObject.name=="Player_2"){
             float moveVertical = Input.GetAxis("Vertical2");
-            playerRb.AddForce(Vector3.up * moveVertical * Speed);
+            playerRb.AddForce(Vector3.up * moveVertical * Speed * Time.deltaTime);
         }
     }
 }

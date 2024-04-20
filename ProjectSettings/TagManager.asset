@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Player1
-  - Player2
+  - Wall1
+  - Wall2
+  - BallCollision
   layers:
   - Default
   - TransparentFX
