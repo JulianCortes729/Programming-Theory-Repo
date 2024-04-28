@@ -5,35 +5,45 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    
     private Rigidbody ballRb;
-    private Vector3 movement = Vector3.zero;
+    private Vector3 movement;
+    private float speed;
+    public Ball(){}
 
-    private float speed = 5.0f;
-
-    void Start()
+    protected void Start()
     {
         ballRb = GetComponent<Rigidbody>();
         Move();
-
     }
-    void FixedUpdate()
+    protected void Update()
     {
         ballRb.velocity = movement * speed;
     }
 
-    void Move(){
+    protected void Move(){
         float randomX = Random.Range(0, 2) == 0 ? -1 : 1;
         float randomY = Random.Range(0,2) == 0 ? -1 : 1;
-        movement.x = randomX;
-        movement.y = randomY;    
+        Movement = new Vector3(randomX,Movement.y,Movement.z);
+        Movement = new Vector3(Movement.x,randomY,Movement.z);   
     }
-    
-    void OnCollisionEnter(Collision col){
+
+    protected void OnCollisionEnter(Collision col){
         if(col.gameObject.tag == "BallCollision"){
-            movement = Vector3.Reflect(movement, col.contacts[0].normal); 
+            Movement = Vector3.Reflect(Movement, col.contacts[0].normal); 
         }
     }
-    
+    public Rigidbody BallRb {
+        get { return ballRb; }
+        set { ballRb = value; }
+    }
+
+    public Vector3 Movement {
+        get { return movement; }
+        set { movement = value; }
+    }
    
+    public float Speed {
+        get { return speed; }
+        set { speed = value; }
+    }
 }
