@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    private float forceTorque = 400;
+    private float forceTorque = 2000;
     private Rigidbody obstacleRb;
 
     void Start (){
@@ -18,6 +18,6 @@ public class ObstacleMovement : MonoBehaviour
     }
 
     void Move(){
-        obstacleRb.AddTorque(forceTorque * Vector3.forward * Time.deltaTime ,ForceMode.Force);
+        obstacleRb.AddTorque(forceTorque * Vector3.forward * Time.deltaTime ,ForceMode.Acceleration);
     }
 }
