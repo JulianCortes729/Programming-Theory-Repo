@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ball1 : Ball
 {
     private new void Start() {
-        Speed = 8.0f;
+        Speed = 7.0f;
         base.Start();
     }
 }
