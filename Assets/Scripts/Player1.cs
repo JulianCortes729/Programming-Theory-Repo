@@ -14,7 +14,7 @@ public class Player1 : Player
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
 
             float moveVertical = Input.GetAxis("Vertical");
-            playerRb.AddForce(Vector3.up * Speed * moveVertical * Time.deltaTime);
+            playerRb.AddForce(Vector3.up * Speed * moveVertical * Time.deltaTime, ForceMode.Acceleration);
         }
         
     }
