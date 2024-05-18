@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -24,14 +26,22 @@ public class Ball : MonoBehaviour
         float randomX = Random.Range(0, 2) == 0 ? -1 : 1;
         float randomY = Random.Range(0,2) == 0 ? -1 : 1;
         Movement = new Vector3(randomX,Movement.y,Movement.z);
-        Movement = new Vector3(Movement.x,randomY,Movement.z);   
+        Movement = new Vector3(Movement.x,randomY,Movement.z);  
     }
 
-    protected void OnCollisionEnter(Collision col){
+    protected IEnumerator OnCollisionEnter(Collision col){
         if(col.gameObject.tag == "BallCollision"){
             Movement = Vector3.Reflect(Movement, col.contacts[0].normal); 
         }
-    }
+        if(col.gameObject.tag == "Wall2" || col.gameObject.tag == "Wall1"){
+            gameObject.transform.position = Vector3.zero;
+            ballRb.isKinematic = true;
+            yield return new WaitForSecondsRealtime(1);
+            Move();
+            ballRb.isKinematic = false;
+        }
+    }  
+
     public Rigidbody BallRb {
         get { return ballRb; }
         set { ballRb = value; }
