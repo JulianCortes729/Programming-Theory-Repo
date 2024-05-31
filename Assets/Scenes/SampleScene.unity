@@ -884,6 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f29935261ebe174987066a12b3760ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text_1: {fileID: 370081035}
+  text_2: {fileID: 630133789}
 --- !u!1001 &1375695570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,8 +977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b7d877669c8fb47a19a0cc7003f2ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterText_1: {fileID: 370081035}
-  counterText_2: {fileID: 630133789}
 --- !u!4 &1489609173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5642156690132223137, guid: aa7d6b1f1761a1a4ca502a0ca7ed4372, type: 3}
@@ -1571,8 +1571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b7d877669c8fb47a19a0cc7003f2ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterText_1: {fileID: 370081035}
-  counterText_2: {fileID: 630133789}
 --- !u!1001 &7873890288214422549
 PrefabInstance:
   m_ObjectHideFlags: 0
