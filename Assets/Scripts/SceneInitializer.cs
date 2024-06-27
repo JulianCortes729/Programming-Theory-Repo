@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneInitializer : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class SceneInitializer : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text_2 ;
 
+    [SerializeField]
+    private TextMeshProUGUI text_3;
+
+    [SerializeField]
+    private GameObject winnerBanner;
     private GameManager gameManager;
     void Start()
     {
@@ -44,6 +50,8 @@ public class SceneInitializer : MonoBehaviour
     public void StartScoring(){
         gameManager.CounterText_1 = text_1;
         gameManager.CounterText_2 = text_2;
+        gameManager.TextWin = text_3;
+        gameManager.WinnerBanner = winnerBanner;
     }
 
 }

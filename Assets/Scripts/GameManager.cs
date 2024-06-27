@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static string gameObjectToActivateName;
     private TextMeshProUGUI counterText_1 ;
     private TextMeshProUGUI counterText_2 ;
+    private TextMeshProUGUI textWin;
+    private GameObject winnerBanner;
+
     private int count_1 = 0;
     private int count_2 = 0;
 
@@ -43,12 +46,22 @@ public class GameManager : MonoBehaviour
 
     void CheckForWinner(){
         if (count_1 >= maxPoints){
-            Debug.Log("Player Green win");
+            //Debug.Log("Player Green win");
+            ShowWinnerBanner("GREEN");
         }
         else if (count_2 >= maxPoints){
-            Debug.Log("Player Red win");
+            //Debug.Log("Player Red win");
+            ShowWinnerBanner("RED");
         }
     }
+
+    void ShowWinnerBanner(String winner){
+        textWin.text = $@"{winner}" + textWin.text;
+        winnerBanner.gameObject.SetActive(true);
+    }
+
+
+
     void Awake(){
         DontDestroyOnLoad(gameObject);
     }
@@ -62,6 +75,18 @@ public class GameManager : MonoBehaviour
     {
         set{counterText_2 = value;}
         get{return counterText_2;}
+    }
+
+    public TextMeshProUGUI TextWin
+    {
+        set{textWin = value;}
+        get{return textWin;}
+    }
+
+    public GameObject WinnerBanner
+    {
+        set{winnerBanner = value;}
+        get{return winnerBanner;}
     }
 
 
