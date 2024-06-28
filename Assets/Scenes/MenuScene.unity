@@ -312,7 +312,6 @@ GameObject:
   - component: {fileID: 469294365}
   - component: {fileID: 469294364}
   - component: {fileID: 469294363}
-  - component: {fileID: 469294366}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -384,9 +383,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 469294366}
-        m_TargetAssemblyTypeName: PlayButton, Assembly-CSharp
-        m_MethodName: OnPlayButtonClicked
+      - m_Target: {fileID: 112124417}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnPlayButtonEasyClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -434,19 +433,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469294361}
   m_CullTransparentMesh: 1
---- !u!114 &469294366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469294361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ba59742f5e19c4d80cd72609ad7d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectToActivateName: Ball_1
 --- !u!1 &588155437
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +511,6 @@ GameObject:
   - component: {fileID: 695218785}
   - component: {fileID: 695218784}
   - component: {fileID: 695218783}
-  - component: {fileID: 695218786}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -597,8 +582,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 695218786}
-        m_TargetAssemblyTypeName: QuitButton, Assembly-CSharp
+      - m_Target: {fileID: 112124417}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnQuitButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -647,18 +632,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695218781}
   m_CullTransparentMesh: 1
---- !u!114 &695218786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695218781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5491d8482940947b7b11261e616c7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &795136844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1191,6 @@ GameObject:
   - component: {fileID: 1928243617}
   - component: {fileID: 1928243616}
   - component: {fileID: 1928243615}
-  - component: {fileID: 1928243618}
   m_Layer: 5
   m_Name: Hard
   m_TagString: Untagged
@@ -1290,9 +1262,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1928243618}
-        m_TargetAssemblyTypeName: PlayButton, Assembly-CSharp
-        m_MethodName: OnPlayButtonClicked
+      - m_Target: {fileID: 112124417}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnPlayButtonHardClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1340,19 +1312,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928243613}
   m_CullTransparentMesh: 1
---- !u!114 &1928243618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928243613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56ba59742f5e19c4d80cd72609ad7d06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectToActivateName: Ball_2
 --- !u!1 &2104703942
 GameObject:
   m_ObjectHideFlags: 0

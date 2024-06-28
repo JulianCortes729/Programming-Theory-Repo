@@ -1,9 +1,11 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     public static string gameObjectToActivateName;
     private TextMeshProUGUI counterText_1 ;
     private TextMeshProUGUI counterText_2 ;
@@ -46,12 +48,12 @@ public class GameManager : MonoBehaviour
 
     void CheckForWinner(){
         if (count_1 >= maxPoints){
-            //Debug.Log("Player Green win");
             ShowWinnerBanner("GREEN");
+            PauseGame();
         }
         else if (count_2 >= maxPoints){
-            //Debug.Log("Player Red win");
             ShowWinnerBanner("RED");
+            PauseGame();
         }
     }
 
@@ -64,6 +66,36 @@ public class GameManager : MonoBehaviour
 
     void Awake(){
         DontDestroyOnLoad(gameObject);
+    }
+
+
+    public void OnPlayButtonEasyClicked(){
+        gameObjectToActivateName = "Ball_1";
+        SceneManager.LoadScene(1);
+    }
+
+     public void OnPlayButtonHardClicked(){
+        gameObjectToActivateName = "Ball_2";
+        SceneManager.LoadScene(1);
+    }
+
+    public void OnRestartButtonClicked(){
+        
+    }
+
+    public void OnQuitButtonClicked(){
+        Application.Quit();
+
+        // Para asegurarse de que la aplicación se cierra durante el desarrollo en el editor
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
+
+    void PauseGame()
+    {
+        // Detiene el tiempo del juego
+        Time.timeScale = 0;
     }
 
     public TextMeshProUGUI CounterText_1
