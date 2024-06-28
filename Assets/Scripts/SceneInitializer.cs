@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class SceneInitializer : MonoBehaviour
 {
     [SerializeField]
@@ -18,16 +19,20 @@ public class SceneInitializer : MonoBehaviour
 
     [SerializeField]
     private GameObject winnerBanner;
-    private GameManager gameManager;
+
+    [SerializeField]
+    private Button buttonRestart;
+
+    //private GameManager gameManager;
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        //gameManager = FindObjectOfType<GameManager>();
         
         StartScoring();
         // Verifica si hay un GameObject que debe ser activado
-        if (!string.IsNullOrEmpty(GameManager.gameObjectToActivateName))
+        if (!string.IsNullOrEmpty(GameManager.Instance.GameObjectToActivateName))
         {
-            GameObject obj = GameObject.Find(GameManager.gameObjectToActivateName);
+            GameObject obj = GameObject.Find(GameManager.Instance.GameObjectToActivateName);
             if (obj != null)
             {
                 if(obj.name == "Ball_1"){
@@ -39,19 +44,21 @@ public class SceneInitializer : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("GameObject not found: " + GameManager.gameObjectToActivateName);
+                Debug.LogWarning("GameObject not found: " + GameManager.Instance.GameObjectToActivateName);
             }
             // Limpia la variable para evitar activar el mismo objeto en futuras escenas
-            GameManager.gameObjectToActivateName = null;
+            GameManager.Instance.GameObjectToActivateName = null;
         }
+        buttonRestart.onClick.AddListener(GameManager.Instance.OnRestartButtonClicked);
     }
 
 
     public void StartScoring(){
-        gameManager.CounterText_1 = text_1;
-        gameManager.CounterText_2 = text_2;
-        gameManager.TextWin = text_3;
-        gameManager.WinnerBanner = winnerBanner;
+        GameManager.Instance.CounterText_1 = text_1;
+        GameManager.Instance.CounterText_2 = text_2;
+        GameManager.Instance.TextWin = text_3;
+        GameManager.Instance.WinnerBanner = winnerBanner;
+        GameManager.Instance.ButtonRestart = buttonRestart;
     }
 
 }

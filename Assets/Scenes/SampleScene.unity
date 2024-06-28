@@ -1256,6 +1256,7 @@ MonoBehaviour:
   text_2: {fileID: 630133789}
   text_3: {fileID: 1340085108}
   winnerBanner: {fileID: 473737463}
+  buttonRestart: {fileID: 1061554467}
 --- !u!1 &1340085106
 GameObject:
   m_ObjectHideFlags: 0
