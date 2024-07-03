@@ -77,10 +77,12 @@ public class GameManager : MonoBehaviour
     void CheckForWinner(){
         if (count_1 >= maxPoints){
             ShowWinnerBanner("GREEN");
+            ChangeColor(textWin,Color.green);
             PauseGame();
         }
         else if (count_2 >= maxPoints){
             ShowWinnerBanner("RED");
+            ChangeColor(textWin,Color.red);
             PauseGame();
         }
     }
@@ -146,6 +148,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // Espera un momento para asegurarse de que la escena se haya cargado completamente
         ball.SetActive(state);
     }
+
+
+    void ChangeColor(TextMeshProUGUI text, Color color){
+        if(text!=null){
+            text.color = color;
+        }
+    }
+
 
     public TextMeshProUGUI CounterText_1
     {
