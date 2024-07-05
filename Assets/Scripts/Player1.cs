@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+//INHERITANCE
 public class Player1 : Player
 {
     
 
     protected new void Start() => base.Start();
 
+
+    //POLYMORPHISM
     protected override void Move()
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){

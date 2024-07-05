@@ -48,19 +48,19 @@ public class GameManager : MonoBehaviour
     public void AddPointToPlayer1()
     {
         count_1++;
-        CheckForWinner();
-        UpdateScoreUI();
+        CheckForWinner();//ABSTRACTION
+        UpdateScoreUI();//ABSTRACTION
     }
 
 
     public void AddPointToPlayer2()
     {
         count_2++;
-        CheckForWinner();
-        UpdateScoreUI();
+        CheckForWinner();//ABSTRACTION
+        UpdateScoreUI();//ABSTRACTION
     }
 
-    private void UpdateScoreUI()
+    private void UpdateScoreUI()//ABSTRACTION
     {
         if (counterText_1 != null)
         {
@@ -74,35 +74,35 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void CheckForWinner(){
+    void CheckForWinner(){//ABSTRACTION
         if (count_1 >= maxPoints){
-            ShowWinnerBanner("GREEN");
-            ChangeColor(textWin,Color.green);
-            PauseGame();
+            ShowWinnerBanner("GREEN");//ABSTRACTION
+            ChangeColor(textWin,Color.green);//ABSTRACTION
+            PauseGame();//ABSTRACTION
         }
         else if (count_2 >= maxPoints){
-            ShowWinnerBanner("RED");
-            ChangeColor(textWin,Color.red);
-            PauseGame();
+            ShowWinnerBanner("RED"); //ABSTRACTION
+            ChangeColor(textWin,Color.red);//ABSTRACTION
+            PauseGame();//ABSTRACTION
         }
     }
 
-    void ShowWinnerBanner(String winner){
+    void ShowWinnerBanner(String winner){//ABSTRACTION
         textWin.text = $@"{winner}" + textWin.text;
         winnerBanner.gameObject.SetActive(true);
     }
 
-    public void ResetGame()
+    public void ResetGame()//ABSTRACTION
     {
         count_1 = 0;
         count_2 = 0;
         Time.timeScale = 1;
         ball1.SetActive(false);
         ball2.SetActive(false);
-        UpdateScoreUI();
+        UpdateScoreUI();//ABSTRACTION
     }
 
-    void PauseGame()
+    void PauseGame()//ABSTRACTION
     {
         // Detiene el tiempo del juego
         Time.timeScale = 0;
@@ -110,8 +110,8 @@ public class GameManager : MonoBehaviour
 
      public void OnPlayButtonEasyClicked(){
 
-       StartCoroutine(ActivateBall(ball1, true));
-       StartCoroutine(ActivateBall(ball2, false)); 
+       StartCoroutine(ActivateBall(ball1, true));//ABSTRACTION
+       StartCoroutine(ActivateBall(ball2, false)); //ABSTRACTION
        SceneManager.LoadScene(1);
        menu.SetActive(false);
         
@@ -119,8 +119,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnPlayButtonHardClicked(){
-        StartCoroutine(ActivateBall(ball1, false));
-        StartCoroutine(ActivateBall(ball2, true));
+        StartCoroutine(ActivateBall(ball1, false));//ABSTRACTION
+        StartCoroutine(ActivateBall(ball2, true));//ABSTRACTION
         SceneManager.LoadScene(1);
         menu.SetActive(false);
        
@@ -137,26 +137,27 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnRestartButtonClicked(){
-        ResetGame();
+        ResetGame(); 
         SceneManager.LoadScene(0);
         menu.SetActive(true);
     }
 
    
-    private IEnumerator ActivateBall(GameObject ball, bool state)
+    private IEnumerator ActivateBall(GameObject ball, bool state)//ABSTRACTION
     {
         yield return new WaitForSeconds(0.1f); // Espera un momento para asegurarse de que la escena se haya cargado completamente
         ball.SetActive(state);
     }
 
 
-    void ChangeColor(TextMeshProUGUI text, Color color){
+    void ChangeColor(TextMeshProUGUI text, Color color){ //ABSTRACTION
         if(text!=null){
             text.color = color;
         }
     }
 
 
+    //ENCAPSULATION
     public TextMeshProUGUI CounterText_1
     {
         set{counterText_1 = value;}

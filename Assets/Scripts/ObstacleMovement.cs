@@ -25,10 +25,10 @@ public class ObstacleMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
+        Move();//ABSTRACTION
     }
 
-    void Move(){
+    void Move(){//ABSTRACTION
 
         float moveDirection = movinRigth ? 1 : -1;
 

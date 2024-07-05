@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public abstract class Player : MonoBehaviour
 {
 
@@ -22,6 +23,7 @@ public abstract class Player : MonoBehaviour
     }
     protected abstract void Move();
 
+    //ENCAPSULATION
     public float Speed {
         get {return speed;}
         set {speed = value;}

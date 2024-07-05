@@ -15,14 +15,14 @@ public class Ball : MonoBehaviour
     protected void Start()
     {
         ballRb = GetComponent<Rigidbody>();
-        Move();
+        Move();//ABSTRACTION
     }
     protected void Update()
     {
         ballRb.velocity = movement * speed;
     }
 
-    protected void Move(){
+    protected void Move(){//ABSTRACTION
         float randomX = Random.Range(0, 2) == 0 ? -1 : 1;
         float randomY = Random.Range(0,2) == 0 ? -1 : 1;
         Movement = new Vector3(randomX,Movement.y,Movement.z);
@@ -42,6 +42,7 @@ public class Ball : MonoBehaviour
         }
     }  
 
+    //ENCAPSULATION
     public Rigidbody BallRb {
         get { return ballRb; }
         set { ballRb = value; }

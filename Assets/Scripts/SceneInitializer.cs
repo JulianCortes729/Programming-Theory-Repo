@@ -25,11 +25,11 @@ public class SceneInitializer : MonoBehaviour
 
     void Start()
     {
-        StartScoring();
+        StartScoring();// ABSTRACTION
         buttonRestart.onClick.AddListener(GameManager.Instance.OnRestartButtonClicked);
     }
 
-    public void StartScoring(){
+    public void StartScoring(){ //ABSTRACTION
         GameManager.Instance.CounterText_1 = text_1;
         GameManager.Instance.CounterText_2 = text_2;
         GameManager.Instance.TextWin = text_3;
